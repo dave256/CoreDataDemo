@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="14460.32" systemVersion="18D109" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="Player" representedClassName="Player" syncable="YES" codeGenerationType="category">
+        <attribute name="firstName" optional="YES" attributeType="String" defaultValueString=" " syncable="YES"/>
+        <attribute name="lastName" optional="YES" attributeType="String" defaultValueString=" " syncable="YES"/>
+        <relationship name="myTeam" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Team" inverseName="players" inverseEntity="Team" syncable="YES"/>
+    </entity>
+    <entity name="Team" representedClassName="Team" syncable="YES" codeGenerationType="category">
+        <attribute name="teamName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="players" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Player" inverseName="myTeam" inverseEntity="Player" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Player" positionX="-54" positionY="0" width="128" height="90"/>
+        <element name="Team" positionX="-63" positionY="-18" width="128" height="75"/>
+    </elements>
+</model>
