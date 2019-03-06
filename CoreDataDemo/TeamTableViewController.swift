@@ -24,6 +24,7 @@ class TeamTableViewController: UITableViewController {
             return
         }
         do {
+            // get array of Team objects from Core Data sorted by teamName property
             teams = try Team.items(for: context, sortedBy: [NSSortDescriptor(key: "teamName", ascending: true)])
         } catch {
             teams = []
