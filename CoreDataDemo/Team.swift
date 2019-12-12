@@ -14,7 +14,7 @@ import CoreData
 
 extension Team {
     static func insertSampleData(context: NSManagedObjectContext) {
-        var players = [
+        let players = [
             "Steelers": ["Terry Bradshaw", "Franco Harris"],
             "Cowboys": ["Roger Staubauch", "Tony Dorsett"]
         ]

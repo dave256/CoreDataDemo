@@ -29,7 +29,7 @@ public protocol DDRCoreData where Self: NSManagedObject {
 
 public extension DDRCoreData {
 
-    public static func items(for context: NSManagedObjectContext, sortedBy sorters: [NSSortDescriptor]? = nil, matching predicate: NSPredicate? = nil) throws -> [Self] {
+    static func items(for context: NSManagedObjectContext, sortedBy sorters: [NSSortDescriptor]? = nil, matching predicate: NSPredicate? = nil) throws -> [Self] {
         return try context.performAndWait {
             let fetchRequest: NSFetchRequest<Self> = Self.fetchRequest() as! NSFetchRequest<Self>
             fetchRequest.predicate = predicate
@@ -42,7 +42,7 @@ public extension DDRCoreData {
 // https://oleb.net/blog/2018/02/performandwait/
 
 public extension NSManagedObjectContext {
-    public func performAndWait<T>(_ block: () throws -> T) rethrows -> T {
+    func performAndWait<T>(_ block: () throws -> T) rethrows -> T {
         return try _performAndWaitHelper(
             fn: performAndWait, execute: block, rescue: { throw $0 }
         )
